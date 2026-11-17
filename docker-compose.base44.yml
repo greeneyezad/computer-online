@@ -1,0 +1,30 @@
+services:
+  desktop:
+    build:
+      context: ./desktop
+      dockerfile: Dockerfile
+    hostname: precision-16s
+    restart: unless-stopped
+    shm_size: 1g
+    ports:
+      - "3000:3000"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - TITLE=Dell Precision 16s
+      # 16" WUXGA panel: 1920x1200 (16:10), locked instead of client-sized.
+      - SELKIES_MANUAL_RESOLUTION=true
+      - SELKIES_MANUAL_WIDTH=1920
+      - SELKIES_MANUAL_HEIGHT=1200
+    volumes:
+      - desktop-config:/config
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS -o /dev/null http://localhost:3000/ || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  desktop-config:

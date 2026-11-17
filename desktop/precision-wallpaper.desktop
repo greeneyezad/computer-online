@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Precision 16s wallpaper
+Comment=Apply the Dell Precision 16s specification wallpaper
+Exec=/bin/sh -c "sleep 4; exec plasma-apply-wallpaperimage /usr/share/precision-16s/precision-16s.png"
+NoDisplay=true
+X-KDE-autostart-after=panel
