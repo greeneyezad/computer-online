@@ -1,0 +1,136 @@
+.panel {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 12px;
+  height: 54px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 10px;
+  border-radius: 12px;
+  background: rgba(17, 20, 26, 0.84);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.panel-btn {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  transition: background 120ms ease;
+}
+
+.panel-btn svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+.panel-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.panel-btn:focus-visible {
+  outline: 2px solid #3daee9;
+  outline-offset: -2px;
+}
+
+.launcher-btn svg {
+  width: 30px;
+  height: 30px;
+}
+
+.launcher-btn.is-active {
+  background: rgba(61, 174, 233, 0.24);
+}
+
+.panel-btn.is-open::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background: #3daee9;
+  transform: translateX(-50%);
+}
+
+.panel-sep {
+  width: 1px;
+  height: 26px;
+  flex: none;
+  margin: 0 5px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.panel-spacer {
+  flex: 1;
+}
+
+.tray {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-right: 4px;
+}
+
+.tray-item {
+  width: 34px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  color: #dbe1e8;
+}
+
+.tray-item svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.tray-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 116px;
+  height: 42px;
+  padding: 0 12px 0 10px;
+  border-radius: 9px;
+  line-height: 1.15;
+}
+
+.clock-time {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.clock-date {
+  font-size: 11px;
+  color: #a6aeba;
+}
+
+.panel-show-desktop {
+  width: 6px;
+  height: 34px;
+  flex: none;
+  margin-left: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.16);
+}

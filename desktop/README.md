@@ -1,8 +1,10 @@
 # Dell Precision 16s desktop (Debian 13.7)
 
-The preview on host port 3000 is a real Debian 13.7 (trixie) amd64 KDE Plasma
-desktop, streamed from a LinuxServer Webtop container and sized to the
-Precision's 16" WUXGA panel.
+This folder holds the reference assets for the Dell Precision 16s KDE Plasma
+session: the wallpaper, the spec sheet and the machine identity. The preview on
+host port 3000 is now the React recreation in `src/`; the Webtop container
+described below is kept as the source of those assets and is no longer the
+preview entry point.
 
 ```bash
 docker compose -f docker-compose.base44.yml up -d --build

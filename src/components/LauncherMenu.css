@@ -1,0 +1,257 @@
+.launcher {
+  position: absolute;
+  left: 20px;
+  bottom: 78px;
+  width: 640px;
+  height: 620px;
+  z-index: 1010;
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  background: rgba(22, 26, 33, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.62);
+  overflow: hidden;
+  color: #eef1f5;
+}
+
+.launcher-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.launcher-search svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  color: #8f9aa8;
+}
+
+.launcher-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  color: #eef1f5;
+  font-size: 14px;
+  outline: none;
+}
+
+.launcher-search input::placeholder {
+  color: #8b96a4;
+}
+
+.launcher-search input:focus {
+  border-color: rgba(61, 174, 233, 0.65);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.launcher-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.launcher-rail {
+  width: 180px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 8px;
+  background: rgba(0, 0, 0, 0.14);
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.launcher-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #c3cbd6;
+  text-align: left;
+}
+
+.launcher-tab svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.launcher-tab:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.launcher-tab.is-active {
+  background: rgba(61, 174, 233, 0.22);
+  color: #ffffff;
+}
+
+.launcher-content {
+  flex: 1;
+  min-width: 0;
+  padding: 16px 18px;
+  overflow-y: auto;
+}
+
+.launcher-heading {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8b96a4;
+  margin-bottom: 12px;
+}
+
+.launcher-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.launcher-tile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.launcher-tile:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.launcher-tile:focus-visible {
+  outline: 2px solid #3daee9;
+  outline-offset: -2px;
+}
+
+.launcher-tile-icon {
+  width: 44px;
+  height: 44px;
+  flex: none;
+}
+
+.launcher-tile-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.launcher-tile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.launcher-tile-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #f1f4f8;
+}
+
+.launcher-tile-desc {
+  font-size: 11px;
+  color: #98a2ae;
+}
+
+.launcher-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.launcher-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.launcher-row:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.launcher-row:focus-visible {
+  outline: 2px solid #3daee9;
+  outline-offset: -2px;
+}
+
+.launcher-row-icon {
+  width: 30px;
+  height: 30px;
+  flex: none;
+}
+
+.launcher-row-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.launcher-row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.launcher-row-name {
+  font-size: 13px;
+  color: #f1f4f8;
+}
+
+.launcher-row-desc {
+  font-size: 11px;
+  color: #98a2ae;
+}
+
+.launcher-empty {
+  font-size: 12.5px;
+  color: #8f9aa8;
+  padding: 6px 2px;
+}
+
+.launcher-footer {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(0, 0, 0, 0.12);
+  font-size: 11.5px;
+  color: #9aa4b1;
+}
+
+.launcher-user {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #dbe2ea;
+}
+
+.launcher-avatar {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4da3ff, #1a63c0);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+}

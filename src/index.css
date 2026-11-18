@@ -1,9 +1,8 @@
 :root {
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+  font-family: 'Noto Sans', 'DejaVu Sans', 'Liberation Sans', Inter, system-ui,
     sans-serif;
-  line-height: 1.5;
-  color: #1b1f24;
-  background-color: #f7f8fa;
+  color: #eff1f4;
+  background: #05070a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -12,15 +11,49 @@
   box-sizing: border-box;
 }
 
-body {
+html,
+body,
+#root {
+  height: 100%;
   margin: 0;
-  min-height: 100vh;
 }
 
-code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.9em;
-  background: rgba(27, 31, 36, 0.06);
-  padding: 0.1em 0.35em;
-  border-radius: 4px;
+body {
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }
