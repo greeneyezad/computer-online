@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Debian GNU/Linux 13.7 — Cinnamon live</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --debian: #d70a53;
+        --accent: #4da3ff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at 50% 35%, #131a24 0%, #080a0e 70%);
+        color: #e8eef6;
+        font-family: 'Noto Sans', 'DejaVu Sans', 'Liberation Sans', system-ui, sans-serif;
+        text-align: center;
+        padding: 32px;
+      }
+      .swirl {
+        width: 74px;
+        height: 74px;
+        margin: 0 auto 26px;
+        border-radius: 50%;
+        border: 3px solid rgba(215, 10, 83, 0.25);
+        border-top-color: var(--debian);
+        border-right-color: var(--debian);
+        animation: spin 1.4s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .distro {
+        font-size: 12px;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: #8fa1b6;
+      }
+      h1 {
+        margin: 10px 0 6px;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .release {
+        margin: 0 0 30px;
+        font-size: 14px;
+        color: #9fb0c4;
+      }
+      .track {
+        width: min(460px, 78vw);
+        height: 6px;
+        margin: 0 auto 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+      }
+      .bar {
+        height: 100%;
+        width: 12%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent), #8ed6f5);
+        transition: width 600ms ease;
+      }
+      .phase {
+        font-size: 14px;
+        margin: 0 0 6px;
+        color: #dfe7f0;
+      }
+      .detail {
+        font-size: 12.5px;
+        margin: 0;
+        color: #8b9aab;
+        min-height: 18px;
+      }
+      .note {
+        margin: 34px auto 0;
+        max-width: 520px;
+        font-size: 11.5px;
+        line-height: 1.7;
+        color: #6f7f92;
+      }
+      .note strong {
+        color: #9fb0c4;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="swirl" aria-hidden="true"></div>
+      <p class="distro">Debian GNU/Linux 13.7 (trixie)</p>
+      <h1>Cinnamon Live</h1>
+      <p class="release">amd64 · 1920 × 1200 · booting a real live ISO in a virtual machine</p>
+      <div class="track"><div class="bar" id="bar"></div></div>
+      <p class="phase" id="phase">Starting the virtual machine…</p>
+      <p class="detail" id="detail"></p>
+      <p class="note">
+        <strong>First start downloads the 4.1 GB live image</strong> and then boots it under QEMU.
+        The Debian boot menu and the live Cinnamon session appear in this window — noVNC streams the
+        screen, so clicks and typing go to the real guest system.
+      </p>
+    </main>
+    <script>
+      const bar = document.getElementById('bar')
+      const phase = document.getElementById('phase')
+      const detail = document.getElementById('detail')
+
+      const gb = (bytes) => (bytes / 1e9).toFixed(2)
+
+      async function poll() {
+        try {
+          const status = await (await fetch('/status', { cache: 'no-store' })).json()
+
+          if (status.phase === 'ready') {
+            location.replace('/vnc.html?autoconnect=true&resize=scale&reconnect=true&reconnect_delay=2000')
+            return
+          }
+
+          if (status.phase === 'downloading') {
+            if (status.total > 0) {
+              const percent = Math.min(100, Math.round((status.received / status.total) * 100))
+              bar.style.width = percent + '%'
+              phase.textContent = 'Downloading the live image… ' + percent + '%'
+              detail.textContent = gb(status.received) + ' GB of ' + gb(status.total) + ' GB'
+            } else {
+              bar.style.width = '30%'
+              phase.textContent = 'Downloading the live image…'
+              detail.textContent = ''
+            }
+          } else if (status.phase === 'booting') {
+            bar.style.width = '100%'
+            phase.textContent = 'Starting the virtual machine…'
+            detail.textContent = 'The Debian boot menu appears next.'
+          } else if (status.phase === 'error') {
+            bar.style.width = '100%'
+            bar.style.background = '#d70a53'
+            phase.textContent = 'The live system could not start.'
+            detail.textContent = status.message || ''
+          } else {
+            phase.textContent = 'Preparing the live system…'
+          }
+        } catch {
+          phase.textContent = 'Waiting for the desktop service…'
+        }
+        setTimeout(poll, 2000)
+      }
+
+      poll()
+    </script>
+  </body>
+</html>

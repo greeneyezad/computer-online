@@ -1,36 +1,29 @@
 services:
-  web:
-    image: node:22
-    working_dir: /workspace
+  desktop:
+    build:
+      context: ./desktop/live
     restart: on-failure
-    command:
-      - sh
-      - -ec
-      - |
-        npm ci --no-audit --no-fund
-        exec npm run dev -- --host 0.0.0.0 --port 3000
+    shm_size: 512m
     ports:
       - "3000:3000"
     volumes:
-      - ${BASE44_PROJECT_ROOT}:/workspace
-      - node-modules:/workspace/node_modules
+      - live-iso:/data
     environment:
       - BASE44_PREVIEW_MODE
-      - __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS
     healthcheck:
       test:
         - CMD
         - node
         - -e
-        - "fetch('http://127.0.0.1:3000/').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"
-      interval: 15s
+        - "fetch('http://127.0.0.1:3000/status').then(r => r.json()).then(s => process.exit(s.phase === 'ready' ? 0 : 1)).catch(() => process.exit(1))"
+      interval: 20s
       timeout: 5s
       retries: 5
-      start_period: 90s
+      start_period: 30s
     labels:
-      - base44.project=Precision 16s Desktop
+      - base44.project=Debian 13.7 Cinnamon Live
       - base44.kind=web
       - base44.port=3000
 
 volumes:
-  node-modules:
+  live-iso:
