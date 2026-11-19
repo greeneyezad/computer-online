@@ -1,0 +1,29 @@
+services:
+  desktop:
+    build:
+      context: ./desktop/live
+    restart: on-failure
+    shm_size: 512m
+    ports:
+      - "3000:3000"
+    volumes:
+      - live-iso:/data
+    environment:
+      - BASE44_PREVIEW_MODE
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3000/status').then(r => r.json()).then(s => process.exit(s.phase === 'ready' ? 0 : 1)).catch(() => process.exit(1))"
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    labels:
+      - base44.project=Debian 13.7 Cinnamon Live
+      - base44.kind=web
+      - base44.port=3000
+
+volumes:
+  live-iso:

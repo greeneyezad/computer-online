@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1200" viewBox="0 0 1920 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0e14"/>
+      <stop offset="0.55" stop-color="#101722"/>
+      <stop offset="1" stop-color="#0c1219"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4da3ff"/>
+      <stop offset="1" stop-color="#1f6fd0" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1200" fill="url(#bg)"/>
+  <rect x="0" y="0" width="10" height="1200" fill="url(#accent)"/>
+
+  <!-- header -->
+  <text x="140" y="190" font-family="DejaVu Sans, sans-serif" font-size="30" font-weight="bold"
+        letter-spacing="9" fill="#4da3ff">DELL PRECISION</text>
+  <text x="134" y="330" font-family="DejaVu Sans, sans-serif" font-size="116" font-weight="bold"
+        fill="#f2f6fb">Precision 16s</text>
+  <text x="140" y="392" font-family="DejaVu Sans, sans-serif" font-size="31" fill="#93a1b3">
+    Mobile Workstation  ·  Debian GNU/Linux 13.7 (trixie) amd64  ·  KDE Plasma
+  </text>
+  <rect x="140" y="444" width="360" height="4" fill="#4da3ff"/>
+
+  <!-- specs -->
+  <g font-family="DejaVu Sans, sans-serif">
+    <text x="140" y="534" font-size="21" letter-spacing="4" fill="#6f7f92">PROCESSOR</text>
+    <text x="140" y="578" font-size="36" fill="#e8eef6">Intel Core Ultra 5 336H</text>
+    <text x="140" y="616" font-size="26" fill="#9aa9bc">12 cores  ·  up to 4.6 GHz  ·  Intel AI Boost NPU, 47 TOPS</text>
+
+    <text x="140" y="702" font-size="21" letter-spacing="4" fill="#6f7f92">MEMORY</text>
+    <text x="140" y="746" font-size="36" fill="#e8eef6">32 GB LPCAMM2</text>
+
+    <text x="140" y="832" font-size="21" letter-spacing="4" fill="#6f7f92">STORAGE</text>
+    <text x="140" y="876" font-size="36" fill="#e8eef6">512 GB NVMe SSD</text>
+
+    <text x="1060" y="534" font-size="21" letter-spacing="4" fill="#6f7f92">GRAPHICS</text>
+    <text x="1060" y="578" font-size="36" fill="#e8eef6">Intel integrated graphics</text>
+
+    <text x="1060" y="702" font-size="21" letter-spacing="4" fill="#6f7f92">WIRELESS</text>
+    <text x="1060" y="746" font-size="36" fill="#e8eef6">Wi-Fi 7 (802.11be)</text>
+
+    <text x="1060" y="832" font-size="21" letter-spacing="4" fill="#6f7f92">DISPLAY</text>
+    <text x="1060" y="876" font-size="36" fill="#e8eef6">16&#8243; WUXGA</text>
+    <text x="1060" y="914" font-size="26" fill="#9aa9bc">1920 &#215; 1200 (16:10)</text>
+  </g>
+
+  <!-- footer -->
+  <rect x="140" y="1020" width="1640" height="1" fill="#26303d"/>
+  <text x="140" y="1080" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#7e8da1">
+    Debian 13.7 trixie  ·  KDE Plasma  ·  1920 &#215; 1200 @ 96 DPI
+  </text>
+  <text x="1780" y="1080" font-family="DejaVu Sans, sans-serif" font-size="25" text-anchor="end" fill="#7e8da1">
+    precision-16s
+  </text>
+</svg>

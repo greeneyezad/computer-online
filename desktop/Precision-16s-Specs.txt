@@ -1,0 +1,17 @@
+Dell Precision 16s — System Specifications
+==========================================
+
+Model             Dell Precision 16s
+Operating system  Debian GNU/Linux 13.7 (trixie) — amd64
+Desktop           KDE Plasma
+Processor         Intel Core Ultra 5 336H
+                  · 12 cores
+                  · up to 4.6 GHz
+                  · Intel AI Boost NPU — 47 TOPS
+Memory            32 GB LPCAMM2
+Storage           512 GB NVMe SSD
+Graphics          Intel integrated graphics
+Wireless          Wi-Fi 7 (802.11be)
+Display           16" WUXGA — 1920 × 1200 (16:10)
+
+Session display   1920 × 1200, 16:10, 96 DPI
